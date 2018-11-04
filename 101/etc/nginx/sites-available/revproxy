@@ -1,0 +1,13 @@
+server {
+
+	server_name st02.fzbx.io;
+
+	location ~ ^/$ {
+		rewrite ^ https://$host$request_uri? permanent;
+	}
+
+	location / {
+		proxy_pass http://192.168.11.201:80;
+	}
+
+}
